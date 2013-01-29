@@ -51,7 +51,7 @@
     background-color: #417282;
 }
 
-#debug-memo-header img{
+#debug-memo-handle img, #debug-memo-header img{
     vertical-align: middle;
 }
 #debug-memo-iframe {
