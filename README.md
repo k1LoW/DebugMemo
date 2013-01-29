@@ -8,6 +8,14 @@ Second, Create schema.
 
     ./lib/Cake/Console/cake schema create debug_memos --plugin DebugMemo
 
+Finally, add the following code in AppController.php
+
+    <?php
+        class AppController extends Controller {
+            public $components = array('DebugMemo.Memobar');
+        }
+
+
 ## Usage
 
 Click bottom bar (when debug = 2), and save memo.
