@@ -1,5 +1,6 @@
 <?php
 App::uses('AppModel', 'Model');
+App::uses('CakeEmail', 'Network/Email');
 class DebugMemo extends AppModel {
 
     /**
@@ -42,11 +43,46 @@ class DebugMemo extends AppModel {
         $this->set($data);
         $result = $this->save(null, true);
         if ($result) {
+            // Send mail
+            try {
+                $email = new CakeEmail('debug_memo');
+                $from = $email->from();
+                if (empty($from)) {
+                    $email->from('debug_memo.notifier@default.com', 'DebugMemo Notifier');
+                }
+                $prefix = Configure::read('DebugMemo.email_subject_prefix');
+                $subject = $email->subject();
+                if (empty($subject)) {
+                    $subject = 'Memo updated';
+                }
+                $url = $result['DebugMemo']['controller'];
+                $url .= ($result['DebugMemo']['action'] === 'index') ? '' : '/' . $result['DebugMemo']['action'];
+                $email->subject($prefix . '['. date('Ymd H:i:s') . '][' . $url . '] ' . $subject);
+                $msg = array(
+                    $subject,
+                    '',
+                    '-------------------------------',
+                    'Info:',
+                    '-------------------------------',
+                    '',
+                    '* URL       : ' . $url,
+                    '* Modified  : ' . $result['DebugMemo']['modified'],
+                    '',
+                    '-------------------------------',
+                    'Memo:',
+                    '-------------------------------',
+                    '',
+                    $result['DebugMemo']['memo'],
+                    '',
+                );
+                $email->send(join("\n", $msg));
+            } catch (ConfigureException $e) {
+                // Drop ConfigureException
+            }
             $this->data = $result;
             return true;
         } else {
             throw new ValidationException();
         }
     }
-
 }
