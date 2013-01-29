@@ -1,0 +1,220 @@
+#debug-memo-body {
+    background-color: white;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+#debug-memo-body h2 {
+    font-weight:100;
+}
+
+#debug-memo-body .message{
+    text-align: center;
+    background-color: #417282;
+    font-weight: bold;
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+#debug-memo-container {
+    position:fixed;
+    width: 100%;
+    height: 200px;
+    bottom: 0px;
+}
+
+#debug-memo-handle {
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    line-height: 30px;
+    font-weight: bold;
+    height: 30px;
+    border: none;
+    color: white;
+    background-color: #417282;
+    cursor: pointer;
+}
+
+#debug-memo-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    line-height: 30px;
+    font-weight: bold;
+    height: 30px;
+    border: none;
+    color: white;
+    background-color: #417282;
+}
+
+#debug-memo-header img{
+    vertical-align: middle;
+}
+#debug-memo-iframe {
+    width: 100%;
+    height: 180px;
+    border: none;
+}
+
+#debug-memo-form {
+    position: relative;
+    width: 100%;
+}
+
+#debug-memo-textarea {
+    overflow: auto;
+    vertical-align: top;
+    display: inline-block;
+    padding: 4px 6px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #555555;
+    vertical-align: middle;
+    border-radius: 4px;
+    width: 100%;
+    height: auto;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+#debug-memo-textarea:focus {
+    border-color: rgba(82, 168, 236, 0.8);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+}
+
+.debug-memo-btn {
+    display: inline-block;
+    *display: inline;
+    padding: 4px 12px;
+    margin-bottom: 0;
+    *margin-left: .3em;
+    font-size: 14px;
+    line-height: 20px;
+    color: #333333;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    vertical-align: middle;
+    cursor: pointer;
+    background-color: #f5f5f5;
+    *background-color: #e6e6e6;
+    background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+    background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+    background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+    background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+    background-repeat: repeat-x;
+    border: 1px solid #bbbbbb;
+    *border: 0;
+    border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    border-bottom-color: #a2a2a2;
+    webkit-border-radius: 4px;
+    moz-border-radius: 4px;
+    border-radius: 4px;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    *zoom: 1;
+    webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.debug-memo-btn:hover,
+.debug-memo-btn:active,
+.debug-memo-btn.active,
+.debug-memo-btn.disabled,
+.debug-memo-btn[disabled] {
+    color: #333333;
+    background-color: #e6e6e6;
+    *background-color: #d9d9d9;
+}
+
+.debug-memo-btn:active,
+.debug-memo-btn.active {
+    background-color: #cccccc \9;
+}
+
+.debug-memo-btn:first-child {
+    *margin-left: 0;
+}
+
+.debug-memo-btn:hover {
+    color: #333333;
+    text-decoration: none;
+    background-position: 0 -15px;
+    webkit-transition: background-position 0.1s linear;
+    moz-transition: background-position 0.1s linear;
+    o-transition: background-position 0.1s linear;
+    transition: background-position 0.1s linear;
+}
+
+.debug-memo-btn:focus {
+    outline: thin dotted #333;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+}
+
+.debug-memo-btn.active,
+.debug-memo-btn:active {
+    background-image: none;
+    outline: 0;
+    webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+    moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+#debug-memo-page-info {
+    margin-top: 50px;
+ }
+
+.debug-memo-table {
+    max-width: 100%;
+    background-color: transparent;
+    border-spacing: 0;
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #dddddd;
+    border-collapse: separate;
+    border-left: 0;
+    border-radius: 4px;
+}
+
+.debug-memo-table-url {
+    width: 20em;
+ }
+
+.debug-memo-table th,
+.debug-memo-table td {
+    padding: 8px;
+    line-height: 20px;
+    text-align: left;
+    vertical-align: top;
+    border-top: 1px solid #dddddd;
+    border-left: 1px solid #dddddd;
+}
+
+.debug-memo-table caption + thead tr:first-child th,
+.debug-memo-table caption + tbody tr:first-child th,
+.debug-memo-table caption + tbody tr:first-child td,
+.debug-memo-table colgroup + thead tr:first-child th,
+.debug-memo-table colgroup + tbody tr:first-child th,
+.debug-memo-table colgroup + tbody tr:first-child td,
+.debug-memo-table thead:first-child tr:first-child th,
+.debug-memo-table tbody:first-child tr:first-child th,
+.debug-memo-table tbody:first-child tr:first-child td {
+  border-top: 0;
+}
+
+.debug-memo-table th {
+    font-weight: bold;
+}
+
+.debug-memo-table thead th {
+    vertical-align: bottom;
+}
