@@ -18,7 +18,13 @@ Finally, add the following code in AppController.php
 
 ## Usage
 
-Click bottom bar (when debug = 2), and save memo.
+Click bottom bar (when debug = 2).
+
+![Click bottom bar](https://raw.github.com/k1LoW/DebugMemo/master/image.png)
+
+And save memo.
+
+![And save memo](https://raw.github.com/k1LoW/DebugMemo/master/image2.png)
 
 ## License
 
