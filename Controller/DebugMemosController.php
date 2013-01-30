@@ -9,6 +9,9 @@ class DebugMemosController extends DebugMemoAppController {
      *
      */
     public function beforeFilter(){
+        if (Configure::read('debug') < 2) {
+            $this->redirect('/');
+        }
         Configure::write('debug', 0);
         parent::beforeFilter();
     }

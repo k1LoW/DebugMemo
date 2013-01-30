@@ -5,6 +5,11 @@
       'inputDefaults' => array('label' => false, 'div' => false, 'divControls' => false),
       )); ?>
     <?php echo $this->Form->input('memo', array('id' => 'debug-memo-textarea', 'type' => 'textarea')); ?>
+    <?php if (!empty($this->data['DebugMemo']['modified'])): ?>
+    <div id="debug-memo-modified">
+        Last modified: <?php echo $this->data['DebugMemo']['modified']; ?>
+    </div>
+    <?php endif; ?>
     <?php echo $this->Form->input('controller', array('type' => 'hidden')); ?>
     <?php echo $this->Form->input('action', array('type' => 'hidden')); ?>
     <?php echo $this->Form->submit(__('Update Memo'), array('class' => 'debug-memo-btn', 'div' => false)); ?>
