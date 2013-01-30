@@ -3,6 +3,8 @@
 class DebugMemosController extends DebugMemoAppController {
 
     public $uses = array('DebugMemo.DebugMemo');
+    public $components = array('Session');
+    public $helpers = array('Html', 'Form');
 
     /**
      * beforeFilter
