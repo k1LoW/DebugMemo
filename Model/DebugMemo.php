@@ -39,6 +39,11 @@ class DebugMemo extends AppModel {
 
         if (!empty($current)) {
             $data['DebugMemo']['id'] = $current['DebugMemo']['id'];
+            $dataArray = explode("\n", $data['DebugMemo']['memo']);
+            $currentArray = explode("\n", $current['DebugMemo']['memo']);
+            $diff = array_diff($dataArray, $currentArray);
+        } else {
+            $diff = explode("\n", $data['DebugMemo']['memo']);
         }
         $this->set($data);
         $result = $this->save(null, true);
@@ -57,7 +62,16 @@ class DebugMemo extends AppModel {
                 }
                 $url = $result['DebugMemo']['controller'];
                 $url .= ($result['DebugMemo']['action'] === 'index') ? '' : '/' . $result['DebugMemo']['action'];
-                $email->subject($prefix . '['. date('Ymd H:i:s') . '][' . $url . '] ' . $subject);
+
+                $sample = '';
+                foreach ($diff as $string) {
+                    if (trim($string)) {
+                        $sample = mb_strimwidth(trim($string), 0, 20, '...');
+                        break;
+                    }
+                }
+
+                $email->subject($prefix . '['. date('Ymd H:i:s') . '][' . $url . '] ' . $subject . ': ' . $sample);
                 $msg = array(
                     $subject,
                     '',
@@ -67,6 +81,7 @@ class DebugMemo extends AppModel {
                     '',
                     '* URL       : ' . $url,
                     '* Modified  : ' . $result['DebugMemo']['modified'],
+                    '* Digest    : ' . $sample,
                     '',
                     '-------------------------------',
                     'Memo:',
