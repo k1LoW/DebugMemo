@@ -66,7 +66,7 @@ class DebugMemo extends AppModel {
                 $sample = '';
                 foreach ($diff as $string) {
                     if (trim($string) && empty($sample)) {
-                        $sample = mb_strimwidth(trim($string), 0, 20, '...');
+                        $sample = mb_strimwidth(trim($string), 0, 40, '...');
                     }
                 }
 
